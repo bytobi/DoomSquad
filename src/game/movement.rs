@@ -121,7 +121,7 @@ pub fn find_blocks_were_currently_in(position: Point, map: &Map) -> Vec<Rc<Shape
 
 pub struct StepRayHit {
     pub position: Point,
-    pub distance: f64, // TODO remove, not needed ?
+    pub distance: f64, //  remove, not needed ?
     pub side: Rc<Side>,
 }
 

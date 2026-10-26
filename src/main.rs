@@ -128,6 +128,17 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 }
             }
 
+            //TODO ist nur nen koppy paste von GameOver eventuell anpassungsbedarf
+            AppState::KeyBinding => {
+                window.set_cursor_visibility(true);
+
+                if escape_clicked {
+                    app_state = AppState::StartScreen;
+                } else {
+                    app_state = menu.update_and_draw_game_over(&mut window, &mut buffer, &mut game);
+                }
+            }
+
             AppState::Quit => {
                 break;
             }

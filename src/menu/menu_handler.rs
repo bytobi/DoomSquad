@@ -30,6 +30,7 @@ pub enum AppState {
     Playing,
     GameOver,
     GamePaused,
+    KeyBinding, //TODO New
     Quit,
 }
 
@@ -97,14 +98,14 @@ impl Menu {
         // Define button layouts
         let btn_start = ButtonDef {
             x: 230,
-            y: 160,
+            y: 150,
             w: 340,
             h: 50,
             text: "[1] NEW GAME".to_string(),
         };
         let btn_load = ButtonDef {
             x: 230,
-            y: 230,
+            y: 210,
             w: 340,
             h: 50,
             text: "[2] LOAD MAP".to_string(),
@@ -117,15 +118,24 @@ impl Menu {
         };
         let btn_audio = ButtonDef {
             x: 230,
-            y: 300,
+            y: 270,
             w: 340,
             h: 50,
             text: audio_text.to_string(),
         };
 
+        //TODO NEW
+        let btn_key = ButtonDef {
+            x: 230,
+            y: 330,
+            w: 340,
+            h: 50,
+            text: "[4] KEY BINDING".to_string(),
+        };
+
         let btn_quit = ButtonDef {
             x: 230,
-            y: 370,
+            y: 390,
             w: 340,
             h: 50,
             text: "[ESC] QUIT GAME".to_string(),
@@ -157,6 +167,10 @@ impl Menu {
 
         if self.draw_flat_button(buffer, &btn_quit, mx, my) && clicked {
             return AppState::Quit;
+        }
+
+        if self.draw_flat_button(buffer, &btn_key, mx, my) && clicked {
+            return AppState::KeyBinding;
         }
 
         // Keep looping in the menu until an action changes the state
